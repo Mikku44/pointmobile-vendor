@@ -5,6 +5,10 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+:root {
+  --primary-color : #05a2c5;
+}
+
 .plus-jakarta-sans {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-optical-sizing: auto;
@@ -15,7 +19,12 @@ html,
 body {
   @apply bg-white;
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     color-scheme: dark;
-  }
+  } */
+}
+
+
+.container-x {
+  @apply max-w-7xl md:px-0 px-4;
 }

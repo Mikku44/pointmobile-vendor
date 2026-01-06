@@ -1,31 +1,58 @@
 import { NavLink } from "react-router";
 import { motion } from "framer-motion";
 import { MENU_APP } from "~/const/app";
+import { VscThreeBars } from "react-icons/vsc";
 
 
 
 export default function GlassNav() {
   return (
-    <header className="w-full group backdrop-blur-xl duration-200 bg-white/20
-     hover:border-b  border-white/20 fixed top-0 z-50">
-
-      <nav className="max-w-5xl mx-auto h-[70px] group-hover:h-20 duration-300 flex items-center gap-6 px-6">
-        <NavLink to="/" className="">
+    <header
+      className="
+    fixed top-0 z-50 w-full
+    backdrop-blur-3xl bg-black/20
+    border-b border-white/10
+    duration-200
+    group
+  "
+    >
+      <nav className="container-x mx-auto h-[70px] flex items-center justify-between px-6">
+        {/* Logo */}
+        <NavLink to="/">
           <img
-            className="h-[78px]"
+            className="h-[72px]"
             src="/logo.svg"
-            alt="cc group supply logo" />
+            alt="cc group supply logo"
+          />
         </NavLink>
-        {MENU_APP.map((item) => (
-          <NavItem key={item.href} item={item} />
-        ))}
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-6">
+          {MENU_APP.map((item) => (
+            <NavItem key={item.href} item={item} />
+          ))}
+        </div>
+
+        {/* Hamburger */}
+        <button className="lg:hidden text-white text-2xl">
+          <VscThreeBars />
+        </button>
       </nav>
 
-      {/* panel */}
-      <div className="absolute h-0 duration-700 group-hover:h-[80vh] w-full z-10 bg-black/30 backdrop-blur-3xl">
-      
+      {/* Dropdown / Panel */}
+      <div
+        className="
+      absolute top-full left-0 w-full
+      h-0 overflow-hidden
+      bg-black/80 backdrop-blur-3xl
+      duration-500
+      group-hover:h-[80vh]
+    "
+      >
+        {/* mobile menu here */}
       </div>
     </header>
+
   );
 }
 
@@ -55,7 +82,7 @@ function NavItem({ item }: any) {
         </>
       )}
 
-      
+
     </NavLink>
   );
 }
