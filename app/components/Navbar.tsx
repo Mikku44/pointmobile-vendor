@@ -46,10 +46,15 @@ export default function GlassNav() {
       h-0 overflow-hidden
       bg-black/80 backdrop-blur-3xl
       duration-500
-      group-hover:h-[80vh]
+      md:group-hover:h-0 group-hover:h-[80vh]
     "
       >
         {/* mobile menu here */}
+          <div className="lg:hidden flex flex-col px-5 gap-6">
+          {MENU_APP.map((item) => (
+            <NavItem key={item.href} item={item} />
+          ))}
+        </div>
       </div>
     </header>
 

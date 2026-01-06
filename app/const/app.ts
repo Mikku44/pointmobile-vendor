@@ -1,5 +1,5 @@
 export const MENU_APP = [
-    // { label: "Home", href: "/" },
+    { label: "Home", href: "/" },
     { label: "Products", href: "/product" },
     { label: "Service", href: "/service" },
     { label: "Support", href: "/support" },

@@ -1,6 +1,9 @@
 import AnimatedText from "~/components/AnimationText";
 import type { Route } from "./+types/home";
 import { motion } from "framer-motion";
+import MovingLineText from "~/components/MovingText";
+import { FaLocationArrow } from "react-icons/fa";
+import InquiryForm from "~/components/InquiryForm";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -81,11 +84,42 @@ export default function Home() {
         src="/earth.jpg"
         alt="rfid phone" />
 
+    </section>
+
+    {/* contact section */}
+
+    <section className="py-10">
+      <div className="container-x  mx-auto flex md:flex-row flex-col ">
+
+        {/* form */}
+        <InquiryForm className="md:max-w-2xl w-full" />
+
+        <div className=" px-4">
+          <div className="text-blue-400 text-xs font-bold uppercase tracking-widest">
+            Contact us
+          </div>
+          <MovingLineText
+            className="text-white max-w-[500px]"
+            text={"Please share any inquiries and we will get back to you soon."} />
 
 
 
 
-
+          <div className="mt-10 space-y-2">
+            <motion.div 
+            whileTap={{
+              scale:0.5
+            }}
+            className="btn-donate flex items-center  gap-3 hover:px-12 px-8 py-2 w-fit">
+              Technical Support
+              <FaLocationArrow />
+            </motion.div>
+            <div className="text-sm text-white">
+              *For technical support, please use our dedicated ticketing system above.
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 }
