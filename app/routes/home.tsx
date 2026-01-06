@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import MovingLineText from "~/components/MovingText";
 import { FaLocationArrow } from "react-icons/fa";
 import InquiryForm from "~/components/InquiryForm";
+import { AppleCardsCarouselDemo } from "~/components/AppleCard";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -86,6 +87,11 @@ export default function Home() {
 
     </section>
 
+    {/* features */}
+    <section className="">
+      <AppleCardsCarouselDemo />
+    </section>
+
     {/* contact section */}
 
     <section className="py-10">
@@ -106,11 +112,11 @@ export default function Home() {
 
 
           <div className="mt-10 space-y-2">
-            <motion.div 
-            whileTap={{
-              scale:0.5
-            }}
-            className="btn-donate flex items-center  gap-3 hover:px-12 px-8 py-2 w-fit">
+            <motion.div
+              whileTap={{
+                scale: 0.5
+              }}
+              className="btn-donate flex items-center  gap-3 hover:px-12 px-8 py-2 w-fit">
               Technical Support
               <FaLocationArrow />
             </motion.div>
