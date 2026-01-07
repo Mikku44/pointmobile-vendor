@@ -2,9 +2,13 @@ import AnimatedText from "~/components/AnimationText";
 import type { Route } from "./+types/home";
 import { motion } from "framer-motion";
 import MovingLineText from "~/components/MovingText";
-import { FaLocationArrow } from "react-icons/fa";
+import { FaEnvelope, FaLocationArrow, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import InquiryForm from "~/components/InquiryForm";
 import { AppleCardsCarouselDemo } from "~/components/AppleCard";
+import { DottedGlowBackground } from "components/ui/dotted-glow-background";
+import TabsProduct from "~/components/TabsProduct";
+import { TextHoverEffect } from "components/ui/text-hover-effect";
+import { CometCard } from "components/ui/comet-card";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -43,33 +47,32 @@ export default function Home() {
         </div>
 
         {/* Product Highlight Card */}
-        <motion.div
-
-          initial={{ y: 10, opacity: 0 }}
-          transition={{ duration: 1 }}
-          whileInView={{ y: 0, opacity: 100 }}
-          className="
-        bg-white/5 backdrop-blur-xl
-        border border-white/10
-        max-w-3xl
-        md:absolute md:right-0 md:mr-24
-        m-4 p-10
-        rounded-3xl shadow-2xl
-      "
-        >
-          <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">
-            PM95
-          </span>
-
-          <h3 className="text-3xl font-semibold text-white mt-2 mb-4">
-            Point Mobile
-          </h3>
-
-          <p className="text-slate-400 leading-relaxed">
-            Discover the 5G device designed for high-performance
-            enterprise and industrial environments.
-          </p>
-        </motion.div>
+        
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            transition={{ duration: 1 }}
+            whileInView={{ y: 0, opacity: 100 }}
+            className="
+          bg-white/5 backdrop-blur-xl
+          border border-white/10
+          max-w-3xl mt-10 md:mt-0
+          md:absolute md:right-0 md:mr-24
+          m-4 p-10 absolute bottom-0
+          rounded-3xl shadow-2xl
+                "
+          >
+            <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">
+              Point Mobile
+            </span>
+            <h3 className="text-3xl font-semibold text-white mt-2 mb-4">
+              PM95
+            </h3>
+            <p className="text-slate-400 leading-relaxed">
+              Discover the 5G device designed for high-performance
+              enterprise and industrial environments.
+            </p>
+          </motion.div>
+        
       </div>
 
       <video
@@ -120,12 +123,70 @@ export default function Home() {
               Technical Support
               <FaLocationArrow />
             </motion.div>
-            <div className="text-sm text-white">
+            <div className="text-sm text-white/50 pt-2">
               *For technical support, please use our dedicated ticketing system above.
             </div>
+            <div className="text-gray-400 border-t-2 pt-5 mt-5 border-white/20 font-medium">
+              <div className="text-sm">
+
+                {/* Address */}
+                <div className="flex items-start gap-3 p-2">
+                  <div className="glass size-10 flex items-center justify-center rounded-full">
+                    <FaMapMarkerAlt className="mt-1 text-white/90" />
+                  </div>
+                  <span className="leading-relaxed">
+                    4222 Ketcham St. Suite 17E,<br />
+                    Elmhurst, NY 11373, USA
+                  </span>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-center gap-3 p-2">
+                  <div className="glass size-10 flex items-center justify-center rounded-full">
+                    <FaEnvelope className="text-white/90" />
+                  </div>
+                  <a
+                    href="mailto:salesRFID@ccgroupsupply.com"
+                    className="hover:text-(--primary-color) duration-150"
+                  >
+                    salesRFID@ccgroupsupply.com
+                  </a>
+                </div>
+
+                {/* Phone */}
+                <div className="flex items-center gap-3 p-2">
+                  <div className="glass size-10 flex items-center justify-center rounded-full">
+                    <FaPhoneAlt className="text-white/90" />
+                  </div>
+                  <a
+                    href="tel:+19295442263"
+                    className="hover:text-(--primary-color) duration-150"
+                  >
+                    +1 (929) 544-2263
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
+
+    {/*  */}
+    <section className="container-x w-full mx-auto h-screen flex items-center">
+        <TabsProduct />
+    </section>
+
+    {/* logo */}
+
+     <motion.div
+      initial={{ y: 50, opacity: 0 }}
+                    transition={{ duration: 2 }}
+                    whileInView={{ y: 0, opacity: 0.3 }}
+     className="h-[30rem] flex items-center opacity-45 justify-center">
+      <TextHoverEffect duration={2} automatic={true} text="CC GROUP" />
+    </motion.div>
   </main>
 }

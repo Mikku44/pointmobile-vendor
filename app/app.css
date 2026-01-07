@@ -59,6 +59,13 @@ body {
   } */
 }
 
+.glass {
+  @apply bg-white/15 backdrop-blur-xl
+      border border-white/20
+      shadow-lg shadow-black/20
+      hover:bg-white/20 transition;
+}
+
 .btn-donate {
     --clr-font-main: hsla(0 0% 20% / 100);
     --btn-bg-1: rgb(4, 87, 212);

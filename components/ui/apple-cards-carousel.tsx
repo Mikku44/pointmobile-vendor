@@ -11,6 +11,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { CometCard } from "./comet-card";
 
 // Helper for class merging (if you don't have a utils file, use this simple version)
 const cn = (...classes: (string | undefined | boolean)[]) => classes.filter(Boolean).join(" ");
@@ -92,16 +93,18 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         >
           <div className="flex flex-row justify-start gap-4 pl-4 mx-auto max-w-7xl">
             {items.map((item, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * index, ease: "easeOut" }}
-                key={"card" + index}
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
-              >
-                {item}
-              </motion.div>
+              <CometCard className="scale-90 rounded-3xl">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index, ease: "easeOut" }}
+                  key={"card" + index}
+                  className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+                >
+                  {item}
+                </motion.div>
+              </CometCard>
             ))}
           </div>
         </div>
